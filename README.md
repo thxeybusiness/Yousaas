@@ -1,6 +1,6 @@
 # You'SaaS
 
-Site vitrine de **You'SaaS** — studio SaaS nouvelle génération.
+Site vitrine de **You'SaaS** — studio B2B (design You'Com, DA verte sur blanc).
 On conçoit, développe et fait scaler des produits SaaS de bout en bout.
 
 ## Stack
