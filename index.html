@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>You'SaaS — Studio SaaS nouvelle génération</title>
+<meta name="description" content="You'SaaS est un studio qui conçoit, développe et scale votre produit SaaS. Product, design, ingénierie, IA et growth sous le même toit." />
+<meta property="og:title" content="You'SaaS — Studio SaaS nouvelle génération" />
+<meta property="og:description" content="On conçoit, on build et on scale votre SaaS. Un seul interlocuteur, toute la stack produit." />
+<meta property="og:type" content="website" />
+<style>
+:root{
+  --bg:#05100b;
+  --bg-2:#07160f;
+  --panel:rgba(255,255,255,.03);
+  --panel-2:rgba(255,255,255,.05);
+  --border:rgba(120,255,190,.12);
+  --border-strong:rgba(120,255,190,.28);
+  --fg:#eafff4;
+  --muted:#93b3a4;
+  --muted-2:#6f8f80;
+  --green:#22c55e;
+  --green-2:#34d399;
+  --green-3:#10b981;
+  --green-glow:rgba(34,197,94,.55);
+  --lime:#a3e635;
+  --radius:18px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--fg);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(60vmax 60vmax at 8% -8%, rgba(34,197,94,.20), transparent 60%),
+    radial-gradient(55vmax 55vmax at 100% 8%, rgba(16,185,129,.16), transparent 60%),
+    radial-gradient(50vmax 50vmax at 50% 120%, rgba(163,230,53,.10), transparent 60%);
+}
+.grid-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(120,255,190,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(120,255,190,.05) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 100%);
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 100%);
+}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green-2);
+  border:1px solid var(--border-strong);border-radius:999px;
+  padding:6px 14px;background:rgba(34,197,94,.06);
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green-2);box-shadow:0 0 10px var(--green-glow)}
+.grad{
+  background:linear-gradient(120deg,var(--green-2),var(--lime));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+em{font-style:italic;color:var(--green-2)}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;justify-content:center;
+  font-weight:600;font-size:15px;border-radius:12px;padding:13px 20px;cursor:pointer;
+  border:1px solid transparent;transition:transform .15s ease,box-shadow .2s ease,background .2s ease;
+}
+.btn-primary{
+  color:#04140b;background:linear-gradient(120deg,var(--green-2),var(--green));
+  box-shadow:0 10px 30px -10px var(--green-glow);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px var(--green-glow)}
+.btn-ghost{color:var(--fg);border-color:var(--border-strong);background:var(--panel)}
+.btn-ghost:hover{background:var(--panel-2);transform:translateY(-2px)}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:linear-gradient(180deg,rgba(5,16,11,.85),rgba(5,16,11,.35));
+  border-bottom:1px solid var(--border);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:19px}
+.brand .mark{
+  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:15px;color:#04140b;
+  background:linear-gradient(135deg,var(--green-2),var(--lime));box-shadow:0 6px 18px -6px var(--green-glow);
+}
+.brand b{font-weight:800}
+.brand .ap{color:var(--green-2)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:var(--muted);font-size:14.5px;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--fg)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.burger{display:none;background:none;border:1px solid var(--border-strong);border-radius:10px;padding:9px;cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:var(--fg);margin:3px 0;border-radius:2px}
+
+/* HERO */
+.hero{padding:88px 0 40px;text-align:center}
+.hero h1{font-size:clamp(38px,7vw,72px);line-height:1.02;letter-spacing:-.03em;font-weight:800;margin:26px auto 0;max-width:16ch}
+.hero p.sub{color:var(--muted);font-size:clamp(16px,2.4vw,20px);max-width:56ch;margin:22px auto 0}
+.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.hero .microtrust{margin-top:26px;color:var(--muted-2);font-size:13.5px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.hero .microtrust b{color:var(--fg)}
+
+/* LOGO STRIP */
+.strip{margin-top:52px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:22px 0}
+.strip .row{display:flex;gap:38px;justify-content:center;flex-wrap:wrap;align-items:center;opacity:.75}
+.strip .row span{font-weight:700;letter-spacing:.02em;color:var(--muted);font-size:15px}
+
+/* SECTION */
+section{padding:74px 0}
+.sec-head{max-width:640px}
+.sec-head.center{margin:0 auto;text-align:center}
+.sec-head h2{font-size:clamp(28px,4.6vw,44px);line-height:1.08;letter-spacing:-.02em;font-weight:800;margin-top:16px}
+.sec-head p{color:var(--muted);font-size:17px;margin-top:14px}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.card{
+  background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:26px;
+  transition:transform .18s ease,border-color .2s ease,background .2s ease;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--border-strong);background:var(--panel-2)}
+.card .ic{
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;font-size:20px;
+  background:rgba(34,197,94,.1);border:1px solid var(--border-strong);
+}
+.card h3{font-size:18.5px;font-weight:700;letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:14.5px;margin-top:8px}
+.card ul{list-style:none;margin-top:14px;display:grid;gap:7px}
+.card li{color:var(--muted);font-size:13.5px;display:flex;gap:9px;align-items:flex-start}
+.card li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green-2);margin-top:7px;flex:0 0 auto}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+.stat{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;text-align:center}
+.stat .n{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.02em}
+.stat .l{color:var(--muted);font-size:13.5px;margin-top:4px}
+
+/* METHOD */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.step{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px}
+.step .k{font-size:13px;font-weight:700;color:var(--green-2);letter-spacing:.06em}
+.step h4{margin-top:10px;font-size:16px;font-weight:700}
+.step p{color:var(--muted);font-size:13.5px;margin-top:7px}
+
+/* SPLIT */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.panel-visual{
+  background:linear-gradient(160deg,rgba(34,197,94,.10),rgba(16,185,129,.04));
+  border:1px solid var(--border);border-radius:22px;padding:22px;position:relative;overflow:hidden;
+}
+.mock{background:rgba(4,14,9,.7);border:1px solid var(--border);border-radius:14px;padding:16px}
+.mock .bar{display:flex;gap:6px;margin-bottom:14px}
+.mock .bar i{width:10px;height:10px;border-radius:50%;background:var(--muted-2);opacity:.6}
+.mrow{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-radius:10px;background:var(--panel);margin-bottom:8px;border:1px solid var(--border)}
+.mrow small{color:var(--muted);font-size:12.5px}
+.mrow b{font-size:14px}
+.up{color:var(--green-2);font-weight:700;font-size:12.5px}
+
+/* TESTIMONIALS */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.quote{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.quote p{font-size:15px}
+.quote .who{margin-top:18px;display:flex;align-items:center;gap:12px}
+.quote .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--green-2),var(--lime));color:#04140b;display:grid;place-items:center;font-weight:800;font-size:14px}
+.quote .who b{font-size:14px;display:block}
+.quote .who small{color:var(--muted);font-size:12.5px}
+
+/* PRICING */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.plan{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column}
+.plan.featured{border-color:var(--border-strong);background:linear-gradient(180deg,rgba(34,197,94,.08),var(--panel));box-shadow:0 24px 60px -30px var(--green-glow)}
+.plan .tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green-2)}
+.plan .price{font-size:34px;font-weight:800;margin-top:12px;letter-spacing:-.02em}
+.plan .price small{font-size:14px;color:var(--muted);font-weight:500}
+.plan ul{list-style:none;margin:18px 0 22px;display:grid;gap:9px}
+.plan li{color:var(--muted);font-size:14px;display:flex;gap:9px}
+.plan li::before{content:"✓";color:var(--green-2);font-weight:800}
+.plan .btn{margin-top:auto}
+
+/* CTA */
+.cta-band{
+  text-align:center;border:1px solid var(--border-strong);border-radius:26px;padding:56px 24px;
+  background:linear-gradient(160deg,rgba(34,197,94,.12),rgba(163,230,53,.05));position:relative;overflow:hidden;
+}
+.cta-band h2{font-size:clamp(28px,4.6vw,46px);font-weight:800;letter-spacing:-.02em}
+.cta-band p{color:var(--muted);margin-top:12px;font-size:17px}
+.cta-band .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.contact-form{max-width:440px;margin:26px auto 0;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.contact-form input{flex:1 1 220px;min-width:0;background:rgba(4,14,9,.6);border:1px solid var(--border-strong);border-radius:12px;padding:13px 15px;color:var(--fg);font-size:15px;outline:none}
+.contact-form input:focus{border-color:var(--green-2)}
+.note{min-height:1.2em;margin-top:12px;color:var(--green-2);font-size:13.5px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:52px 0 34px;margin-top:20px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.foot h5{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:14px}
+.foot a{display:block;color:var(--muted);font-size:14px;padding:5px 0;transition:color .15s}
+.foot a:hover{color:var(--fg)}
+.foot .desc{color:var(--muted);font-size:14px;margin-top:12px;max-width:34ch}
+.foot-bottom{margin-top:36px;padding-top:22px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted-2);font-size:13px}
+
+@media(max-width:900px){
+  .cards,.quotes,.plans{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links,.nav-cta .btn{display:none}
+  .burger{display:block}
+  .cards,.quotes,.plans,.stats,.steps,.foot{grid-template-columns:1fr}
+  .mobile-open .nav-links{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;
+    background:var(--bg-2);border-bottom:1px solid var(--border);padding:18px 22px;gap:16px}
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header id="top">
+  <div class="wrap nav" id="nav">
+    <a class="brand" href="#top"><span class="mark">Y</span>You<span class="ap">'</span>SaaS</a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#methode">Méthode</a>
+      <a href="#resultats">Réalisations</a>
+      <a href="#offres">Offres</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Démarrer un projet →</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="dot"></span> Studio SaaS · Product · IA</span>
+      <h1>Votre idée de SaaS mérite mieux qu'un <span class="grad">simple MVP.</span></h1>
+      <p class="sub">You'SaaS conçoit, développe et fait <em>scaler</em> des produits SaaS de bout en bout. Product, design, ingénierie, IA et growth — un seul studio, un seul interlocuteur.</p>
+      <div class="cta">
+        <a href="#contact" class="btn btn-primary">Démarrer un projet →</a>
+        <a href="#services" class="btn btn-ghost">Voir nos services</a>
+      </div>
+      <div class="microtrust">
+        <span><b>40+</b> produits livrés</span>
+        <span><b>8 semaines</b> jusqu'au 1er lancement</span>
+        <span><b>×3.4</b> ROI moyen</span>
+      </div>
+    </div>
+    <div class="wrap strip">
+      <div class="row">
+        <span>Next.js</span><span>TypeScript</span><span>Postgres</span><span>Stripe</span><span>Vercel</span><span>OpenAI</span><span>Prisma</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span> Ce qu'on fait</span>
+        <h2>Toute la stack produit, <span class="grad">sous le même toit.</span></h2>
+        <p>De la première maquette à la mise à l'échelle : on couvre chaque brique pour que vous n'ayez qu'un seul interlocuteur.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="ic">🧭</div>
+          <h3>Product & UX</h3>
+          <p>On transforme une intuition en produit clair, désirable et vendable.</p>
+          <ul><li>Cadrage & product discovery</li><li>User flows & prototypes</li><li>Design system sur mesure</li></ul>
+        </article>
+        <article class="card">
+          <div class="ic">⚙️</div>
+          <h3>Développement SaaS</h3>
+          <p>Une base technique solide, scalable et maintenable dès le jour 1.</p>
+          <ul><li>Next.js · TypeScript · Postgres</li><li>Auth, multi-tenant, facturation Stripe</li><li>API & architecture cloud</li></ul>
+        </article>
+        <article class="card">
+          <div class="ic">🤖</div>
+          <h3>IA & Automatisation</h3>
+          <p>Des agents et workflows IA qui font gagner des heures, pas des gadgets.</p>
+          <ul><li>Agents & intégrations LLM</li><li>Automatisations métier</li><li>RAG & recherche intelligente</li></ul>
+        </article>
+        <article class="card">
+          <div class="ic">📈</div>
+          <h3>Growth & Acquisition</h3>
+          <p>Un produit qui se vend : SEO, contenu et boucles d'activation.</p>
+          <ul><li>Landing & pages de conversion</li><li>SEO technique & contenu</li><li>Analytics & A/B testing</li></ul>
+        </article>
+        <article class="card">
+          <div class="ic">🛡️</div>
+          <h3>Infra & DevOps</h3>
+          <p>Déploiements sereins, monitoring et sécurité de niveau production.</p>
+          <ul><li>CI/CD & preview deploys</li><li>Observabilité (Sentry, logs)</li><li>Sauvegardes & conformité</li></ul>
+        </article>
+        <article class="card">
+          <div class="ic">🚀</div>
+          <h3>Scale & Maintenance</h3>
+          <p>On reste après le lancement : roadmap continue et KPIs suivis.</p>
+          <ul><li>Roadmap mensuelle</li><li>SLA & support</li><li>Optimisation coûts & perfs</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section>
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><div class="n grad" data-count="40" data-suffix="+">0</div><div class="l">Produits livrés</div></div>
+        <div class="stat"><div class="n grad" data-count="8" data-suffix=" sem.">0</div><div class="l">Jusqu'au 1er lancement</div></div>
+        <div class="stat"><div class="n grad" data-count="3.4" data-suffix="×" data-decimals="1">0</div><div class="l">ROI moyen client</div></div>
+        <div class="stat"><div class="n grad" data-count="99" data-suffix="%">0</div><div class="l">Uptime cible</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="methode">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow"><span class="dot"></span> Notre méthode</span>
+        <h2>De l'idée au <span class="grad">produit qui scale.</span></h2>
+        <p>Un process en cinq étapes, transparent et rythmé par des livrables concrets.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="k">01</div><h4>Cadrage</h4><p>Objectifs, cible et périmètre. On aligne la vision avant d'écrire une ligne de code.</p></div>
+        <div class="step"><div class="k">02</div><h4>Design</h4><p>Prototype cliquable et design system. On valide l'expérience avant le build.</p></div>
+        <div class="step"><div class="k">03</div><h4>Build</h4><p>Développement par sprints, previews à chaque étape, zéro effet tunnel.</p></div>
+        <div class="step"><div class="k">04</div><h4>Lancement</h4><p>Mise en prod, paiement, analytics et monitoring. On passe le cap sereinement.</p></div>
+        <div class="step"><div class="k">05</div><h4>Scale</h4><p>Roadmap continue, itérations data-driven et optimisation des coûts.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT / SHOWCASE -->
+  <section>
+    <div class="wrap split">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span> Tableau de bord vivant</span>
+        <h2>Vous voyez <span class="grad">tout</span>, en temps réel.</h2>
+        <p>Chaque projet You'SaaS embarque un cockpit clair : avancement, métriques produit et santé technique au même endroit. Fini les rapports interminables.</p>
+        <div class="cta" style="margin-top:22px">
+          <a href="#contact" class="btn btn-primary">Discuter de mon projet →</a>
+        </div>
+      </div>
+      <div class="panel-visual">
+        <div class="mock">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="mrow"><div><b>MRR</b><br><small>Revenu mensuel récurrent</small></div><div style="text-align:right"><b>42 318 €</b><br><span class="up">+12.4%</span></div></div>
+          <div class="mrow"><div><b>Utilisateurs actifs</b><br><small>7 derniers jours</small></div><div style="text-align:right"><b>3 214</b><br><span class="up">+8.1%</span></div></div>
+          <div class="mrow"><div><b>Conversion</b><br><small>Essai → payant</small></div><div style="text-align:right"><b>6.8%</b><br><span class="up">+2.3pts</span></div></div>
+          <div class="mrow"><div><b>Uptime</b><br><small>30 derniers jours</small></div><div style="text-align:right"><b>99.98%</b><br><span class="up">stable</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="resultats">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow"><span class="dot"></span> Ils nous font confiance</span>
+        <h2>Des résultats, <span class="grad">pas des promesses.</span></h2>
+      </div>
+      <div class="quotes">
+        <figure class="quote">
+          <p>« On avait une idée et zéro produit. You'SaaS a livré un SaaS complet, facturation comprise, en deux mois. Le ROI a suivi dès le premier trimestre. »</p>
+          <figcaption class="who"><span class="av">JM</span><span><b>Julien Marchand</b><small>CEO, ScaleUp B2B</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <p>« L'équipe pense produit ET business. Le design et l'onboarding ont doublé notre taux de conversion en six semaines. »</p>
+          <figcaption class="who"><span class="av">CL</span><span><b>Claire Lambert</b><small>CMO, SaaS Fintech</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <p>« Leurs automatisations IA ont réduit nos coûts opérationnels de 38%. Un vrai partenaire technique, pas un simple prestataire. »</p>
+          <figcaption class="who"><span class="av">SD</span><span><b>Sophie Diallo</b><small>Head of Ops, D2C</small></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="offres">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow"><span class="dot"></span> Offres</span>
+        <h2>Un format pour <span class="grad">chaque étape.</span></h2>
+        <p>Des engagements clairs, sans surprise. On adapte le périmètre à votre ambition.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <span class="tag">MVP</span>
+          <div class="price">dès 9k€ <small>/ projet</small></div>
+          <ul><li>Cadrage & design</li><li>MVP fonctionnel en 6–8 sem.</li><li>Auth + base de données</li><li>Déploiement Vercel</li></ul>
+          <a href="#contact" class="btn btn-ghost">Lancer un MVP</a>
+        </div>
+        <div class="plan featured">
+          <span class="tag">Studio · le + choisi</span>
+          <div class="price">dès 4k€ <small>/ mois</small></div>
+          <ul><li>Tout le MVP, en continu</li><li>Sprints produit mensuels</li><li>IA & automatisations</li><li>Growth & analytics</li><li>Support prioritaire (SLA)</li></ul>
+          <a href="#contact" class="btn btn-primary">Démarrer →</a>
+        </div>
+        <div class="plan">
+          <span class="tag">Scale</span>
+          <div class="price">sur mesure</div>
+          <ul><li>Équipe dédiée</li><li>Architecture avancée & DevOps</li><li>Sécurité & conformité</li><li>Roadmap stratégique</li></ul>
+          <a href="#contact" class="btn btn-ghost">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta-band">
+        <span class="eyebrow"><span class="dot"></span> Parlons-en</span>
+        <h2>Prêt à construire <span class="grad">quelque chose de mémorable ?</span></h2>
+        <p>Laissez votre email : on revient vers vous sous 24h avec une première piste.</p>
+        <form class="contact-form" id="form" novalidate>
+          <input type="email" name="email" placeholder="vous@entreprise.com" aria-label="Votre email" required />
+          <button type="submit" class="btn btn-primary">Envoyer →</button>
+        </form>
+        <p class="note" id="note" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top"><span class="mark">Y</span>You<span class="ap">'</span>SaaS</a>
+        <p class="desc">Le studio qui conçoit, développe et fait scaler votre produit SaaS. Product, ingénierie, IA et growth réunis.</p>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <a href="#methode">Méthode</a>
+        <a href="#resultats">Réalisations</a>
+        <a href="#offres">Offres</a>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <a href="#services">Développement SaaS</a>
+        <a href="#services">IA & Automatisation</a>
+        <a href="#services">Product & Design</a>
+        <a href="#services">Growth</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <a href="#contact">Démarrer un projet</a>
+        <a href="mailto:hello@yousaas.business">hello@yousaas.business</a>
+        <a href="#top">Retour en haut ↑</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> You'SaaS · Tous droits réservés</span>
+      <span>Studio SaaS · Remote-first</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // mobile menu
+  var burger=document.getElementById("burger"), nav=document.getElementById("nav");
+  burger&&burger.addEventListener("click",function(){nav.parentElement.parentElement.classList.toggle("mobile-open")});
+  document.querySelectorAll(".nav-links a").forEach(function(a){
+    a.addEventListener("click",function(){document.querySelector("header").classList.remove("mobile-open")});
+  });
+
+  // count-up on view
+  function animate(el){
+    var target=parseFloat(el.dataset.count), dec=parseInt(el.dataset.decimals||"0",10),
+        suf=el.dataset.suffix||"", start=null, dur=1400;
+    function tick(t){
+      if(!start)start=t;
+      var p=Math.min((t-start)/dur,1), val=(target*(0.5-Math.cos(p*Math.PI)/2));
+      el.textContent=val.toFixed(dec)+suf;
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){animate(e.target);io.unobserve(e.target);}});
+  },{threshold:.5});
+  document.querySelectorAll("[data-count]").forEach(function(el){io.observe(el)});
+
+  // contact form
+  var form=document.getElementById("form"), note=document.getElementById("note");
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var email=form.email.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){note.style.color="#fca5a5";note.textContent="Merci d'entrer un email valide.";return;}
+    try{var l=JSON.parse(localStorage.getItem("yousaas_leads")||"[]");if(l.indexOf(email)<0)l.push(email);localStorage.setItem("yousaas_leads",JSON.stringify(l));}catch(_){}
+    form.reset();note.style.color="";note.textContent="Merci ! On revient vers vous sous 24h.";
+  });
+</script>
+</body>
+</html>
