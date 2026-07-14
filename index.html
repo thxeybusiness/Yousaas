@@ -8,6 +8,7 @@
 <meta property="og:title" content="You'SaaS — Studio SaaS nouvelle génération" />
 <meta property="og:description" content="On conçoit, on build et on scale votre SaaS. Un seul interlocuteur, toute la stack produit." />
 <meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%2322c55e' d='M58 14 C74 14 86 27 84 45 C82 65 66 82 46 90 C41 92 37 89 39 84 C47 68 56 55 56 42 C56 29 48 14 58 14 Z'/%3E%3C/svg%3E" />
 <style>
 :root{
   --bg:#05100b;
@@ -86,13 +87,9 @@ header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backd
   background:linear-gradient(180deg,rgba(5,16,11,.85),rgba(5,16,11,.35));
   border-bottom:1px solid var(--border);}
 .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:19px}
-.brand .mark{
-  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:15px;color:#04140b;
-  background:linear-gradient(135deg,var(--green-2),var(--lime));box-shadow:0 6px 18px -6px var(--green-glow);
-}
-.brand b{font-weight:800}
-.brand .ap{color:var(--green-2)}
+.brand{display:inline-flex;align-items:center;font-weight:800;letter-spacing:-.03em;font-size:20px;line-height:1}
+.brand .logo{display:inline-block;width:.4em;height:.82em;margin:0 .015em;transform:translateY(-.03em);flex:0 0 auto}
+.brand .logo svg{width:100%;height:100%;display:block;fill:var(--green)}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{color:var(--muted);font-size:14.5px;font-weight:500;transition:color .15s}
 .nav-links a:hover{color:var(--fg)}
@@ -228,7 +225,7 @@ footer{border-top:1px solid var(--border);padding:52px 0 34px;margin-top:20px}
 
 <header id="top">
   <div class="wrap nav" id="nav">
-    <a class="brand" href="#top"><span class="mark">Y</span>You<span class="ap">'</span>SaaS</a>
+    <a class="brand" href="#top">You<span class="logo" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M58 14 C74 14 86 27 84 45 C82 65 66 82 46 90 C41 92 37 89 39 84 C47 68 56 55 56 42 C56 29 48 14 58 14 Z"/></svg></span>SaaS</a>
     <nav class="nav-links">
       <a href="#services">Services</a>
       <a href="#methode">Méthode</a>
@@ -445,7 +442,7 @@ footer{border-top:1px solid var(--border);padding:52px 0 34px;margin-top:20px}
   <div class="wrap">
     <div class="foot">
       <div>
-        <a class="brand" href="#top"><span class="mark">Y</span>You<span class="ap">'</span>SaaS</a>
+        <a class="brand" href="#top">You<span class="logo" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M58 14 C74 14 86 27 84 45 C82 65 66 82 46 90 C41 92 37 89 39 84 C47 68 56 55 56 42 C56 29 48 14 58 14 Z"/></svg></span>SaaS</a>
         <p class="desc">Le studio qui conçoit, développe et fait scaler votre produit SaaS. Product, ingénierie, IA et growth réunis.</p>
       </div>
       <div>
