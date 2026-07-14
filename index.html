@@ -837,6 +837,11 @@ section{position:relative;padding:140px 6vw}
 .svc-primary .pcard.comm .more:hover{background:#fff}
 .svc-primary .pcard.comm .visual{background:radial-gradient(circle,rgba(58,248,56,.25),transparent 70%)}
 
+.svc-primary.solo{grid-template-columns:1fr}
+.svc-primary.solo .pcard{min-height:0;padding:52px}
+.svc-primary.solo .pcard .solo-main{max-width:680px;position:relative;z-index:2;display:flex;flex-direction:column}
+@media (max-width:900px){.svc-primary.solo .pcard .pcard-deco{position:static;margin-top:28px;display:inline-block}}
+
 /* Secondary services grid */
 .svc-secondary-head{display:flex;justify-content:space-between;align-items:flex-end;margin:80px 0 40px;gap:30px;flex-wrap:wrap;position:relative;z-index:2}
 .svc-secondary-head h3{font-size:clamp(28px,3.5vw,46px);font-weight:700;letter-spacing:-.025em;line-height:1.05;max-width:18ch}
@@ -2478,48 +2483,27 @@ body.vsl-locked{overflow:hidden}
 <section class="svc-hier" id="services">
   <div class="head sr">
     <div>
-      <span class="pill">Hiérarchie de services</span>
-      <h2 class="reveal">Deux piliers <em>majeurs</em>.</h2>
+      <span class="pill">Ce qu'on fait</span>
+      <h2 class="reveal">Un métier : le <em>SaaS</em>.</h2>
     </div>
-    <p class="lead">Le développement SaaS est notre cœur de métier, l'IA notre accélérateur. Tout s'orchestre autour de ces deux pôles — produit, data, intégrations — pour livrer un logiciel complet et cohérent.</p>
+    <p class="lead">Développement SaaS sur-mesure, augmenté par l'IA et l'automatisation. Produit, data, intégrations : tout est conçu et orchestré au même endroit pour livrer un logiciel complet et cohérent.</p>
   </div>
 
-  <!-- Primary services -->
-  <div class="svc-primary">
+  <!-- Cœur de métier -->
+  <div class="svc-primary solo">
     <div class="pcard saas reveal">
-      <div>
-        <div class="rank"><span class="badge">01 · Cœur de métier</span></div>
-        <h3>SaaS x Automatisation IA</h3>
-        <p>SaaS sur-mesure et agents IA opérationnels. Plateformes B2B, dashboards, portails clients et workflows IA — conçus comme des produits, pas comme des prototypes.</p>
+      <div class="solo-main">
+        <div class="rank"><span class="badge">Cœur de métier</span></div>
+        <h3>SaaS sur-mesure <em>+</em> Automatisation IA</h3>
+        <p>Le développement SaaS est notre métier ; l'IA, notre accélérateur. Plateformes B2B, dashboards, portails clients et agents IA — conçus comme des produits complets, scalables et documentés, pas comme des prototypes.</p>
         <div class="feats">
-          <div>Plateformes SaaS sur-mesure</div>
-          <div>Agents IA & workflows custom</div>
-          <div>Intégrations LLM & automatisations</div>
-          <div>Architecture scalable & API</div>
+          <div>Plateformes SaaS sur-mesure & portails clients</div>
+          <div>Dashboards, data & architecture scalable</div>
+          <div>Agents IA, workflows & intégrations LLM</div>
+          <div>API, maintenance & montée en charge</div>
         </div>
+        <a href="services.html#saas" class="more">Découvrir nos services →</a>
       </div>
-      <a href="services.html#saas" class="more">Découvrir le pôle SaaS →</a>
-      <div class="pcard-deco">
-        <div class="pd-code-top"><i style="background:#ff6058"></i><i style="background:#ffbd2e"></i><i style="background:#27ca40"></i></div>
-        <div class="pd-code">
-          <span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="pcard comm reveal">
-      <div>
-        <div class="rank"><span class="badge">02 · Pilier majeur</span></div>
-        <h3>IA &amp; Automatisation</h3>
-        <p>Notre second pôle. Agents autonomes, workflows intelligents et intégrations LLM qui suppriment les tâches répétitives — votre produit travaille à votre place.</p>
-        <div class="feats">
-          <div>Agents IA autonomes</div>
-          <div>RAG & recherche intelligente</div>
-          <div>Workflows & automatisations</div>
-          <div>Intégrations LLM (OpenAI, Claude)</div>
-        </div>
-      </div>
-      <a href="services.html#ia" class="more">Découvrir le pôle IA →</a>
       <div class="pcard-deco">
         <div class="pd-stat-row">
           <div><b>−68%</b><span>Tâches manuelles</span></div>
