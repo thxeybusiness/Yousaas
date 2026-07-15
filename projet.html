@@ -268,7 +268,7 @@ footer .bot{display:flex;justify-content:space-between;padding-top:28px;font-siz
 
 <div class="contact-wrap">
   <!-- FORM -->
-  <form class="form-card sr" id="contactForm" method="post" action="/api/contact" novalidate>
+  <form class="form-card sr" id="contactForm" action="mailto:hello@yousaas.business" novalidate>
     <h2>Démarrer un projet</h2>
     <p class="subt">Remplissez ce formulaire — nous revenons vers vous sous 24h ouvrées.</p>
     <!-- Honeypot anti-spam (caché aux humains, rempli par les bots) -->
@@ -486,10 +486,6 @@ document.querySelectorAll('.sr').forEach(el=>sio.observe(el));
       return;
     }
 
-    // Désactive le bouton pendant l'envoi
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Envoi en cours…';
-
     // Collecte les données — budget en texte humain (chip span)
     const data = new FormData(form);
     let budgetLabel = '';
@@ -498,41 +494,40 @@ document.querySelectorAll('.sr').forEach(el=>sio.observe(el));
       const span = checkedBudget.parentElement.querySelector('span');
       budgetLabel = span ? span.textContent.trim() : '';
     }
-    const payload = {
-      firstname: data.get('firstname') || '',
-      lastname:  data.get('lastname')  || '',
-      email:     data.get('email')     || '',
-      company:   data.get('company')   || '',
-      budget:    budgetLabel,
-      timeline:  data.get('timeline')  || '',
-      message:   data.get('message')   || '',
-      website:   data.get('website')   || '',  // honeypot
-      svc:       data.getAll('svc')
-    };
 
-    try {
-      const resp = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
-      });
-      const json = await resp.json().catch(()=>({}));
-
-      if (!resp.ok || !json.ok) {
-        throw new Error(json.error || 'Une erreur est survenue. Réessayez ou écrivez-nous directement à hello@yousaas.business.');
-      }
-
-      // Succès — toast + reset
+    // Honeypot anti-spam : si rempli, on simule un succès sans rien envoyer
+    if ((data.get('website') || '').toString().trim() !== '') {
       toast.classList.add('show');
       setTimeout(()=>toast.classList.remove('show'), 4500);
       form.reset();
-    } catch (err) {
-      errBox.textContent = err.message;
-      errBox.style.display = 'block';
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalLabel;
+      return;
     }
+
+    // Construit un email pré-rempli vers hello@yousaas.business (pas de backend)
+    const val = k => (data.get(k) || '').toString().trim();
+    const svc = data.getAll('svc').join(', ');
+    const body = [
+      'Prénom : '    + val('firstname'),
+      'Nom : '       + val('lastname'),
+      'Email : '     + val('email'),
+      'Entreprise : '+ val('company'),
+      'Budget : '    + budgetLabel,
+      'Échéance : '  + val('timeline'),
+      'Besoins : '   + svc,
+      '',
+      'Message :',
+      val('message')
+    ].join('\n');
+    const subject = 'Nouveau projet — ' + (val('company') || (val('firstname') + ' ' + val('lastname')).trim() || val('email'));
+    const mailto = 'mailto:hello@yousaas.business'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body='    + encodeURIComponent(body);
+
+    // Ouvre le client mail pré-rempli, puis confirme visuellement
+    window.location.href = mailto;
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'), 4500);
+    form.reset();
   });
 })();
 </script>
